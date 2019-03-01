@@ -1,3 +1,10 @@
+phpunit.phar
+/vendor
+composer.phar
+composer.lock
+.idea
+.php_cs.cache
+
 # ====== macOS ===========================================
 # General
 .DS_Store

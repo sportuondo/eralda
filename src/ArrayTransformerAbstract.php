@@ -14,7 +14,7 @@ abstract class ArrayTransformerAbstract extends TransformerAbstract
         }
 
         // Process base mapping
-        foreach ($this->itemKeysMap() as $key => $value) {
+        foreach ($this->keysMap as $key => $value) {
             $customPresenterMethodName = static::camel('present' . $key);
             if (method_exists($this, $customPresenterMethodName)) {
                 $this->output[$value] = $this->{$customPresenterMethodName}($item);
@@ -36,8 +36,16 @@ abstract class ArrayTransformerAbstract extends TransformerAbstract
         return $this->output;
     }
 
-    public function transformCollection($items): array
+    /**
+     * @param iterable $items
+     * @return array
+     */
+    public function transformCollection(iterable $items): array
     {
+        if (!is_iterable($items)) {
+            throw new \InvalidArgumentException("The items parameter must contain an iterable value.");
+        }
+
         $result = [];
         foreach ($items as $item) {
             $result[] = $this->transformItem($item);

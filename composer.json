@@ -1,23 +1,40 @@
 {
     "name": "sportuondo/eralda",
-    "description": "Dead simple obcjets to array transformation library.",
+    "description": "Dead simple object to array transformation library.",
+    "keywords": [
+        "sportuondo",
+        "sendoaportuondo",
+        "eralda",
+        "json"
+    ],
     "homepage": "https://www.kubicode.com",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Sendoa Portuondo",
-            "email": "sportuondo@kubicode.com"
+            "email": "sportuondo@kubicode.com",
+            "homepage": "https://www.kubicode.com"
         }
     ],
-    "version": "0.0.1",
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Sportuondo\\Eralda\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Sportuondo\\Eralda\\Tests\\": "tests/Support"
+        }
+    },
     "require": {
-        "php": ">=7.0.0"
+        "php": ">=7.1.0"
+    },
+    "require-dev": {
+        "nesbot/carbon": "^2.14",
+        "phpunit/phpunit": "^7.5"
+    },
+    "config": {
+        "sort-packages": true
     }
 }
